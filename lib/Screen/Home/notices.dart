@@ -50,6 +50,17 @@ class _NoticesState extends State<Notices> {
       itemRef.push().set(item.toJson());
     }
   }
+  void handleDelete(String key, int index) {
+    final FormState form = formKey.currentState;
+
+    itemRef.child(key).remove().then((_) {
+      print("Delete successful");
+      setState(() {
+        items.removeAt(index);
+      });
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,12 +80,12 @@ class _NoticesState extends State<Notices> {
                   direction: Axis.vertical,
                   children: <Widget>[
                     ListTile(
-                      leading: Icon(Icons.info),
+                      leading: Icon(Icons.today),
                       title: TextFormField(
                         decoration: InputDecoration(hintText: 'Date in format dd/mm/yyyy'),
                         initialValue: "",
                         validator:  validateDate,
-                        onSaved: (val) => item.info = val,
+                        onSaved: (val) => item.date = val,
 
                       ),
                     ),
@@ -112,6 +123,12 @@ class _NoticesState extends State<Notices> {
                   leading: Icon(Icons.message),
                   title: Text(items[index].date),
                   subtitle: Text(items[index].info),
+                  trailing: IconButton(
+                    icon: Icon(Icons.delete),
+                    onPressed: (){
+                      handleDelete(items[index].key,index);
+                    },
+                  ),
                 );
               },
             ),

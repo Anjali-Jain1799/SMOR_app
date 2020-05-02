@@ -11,14 +11,37 @@ class Homepage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Home'),
       ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: Image.asset('assets/SMOR image.jpg'),
+          ),
+          Expanded(
+            flex: 2,
+              child: Container(
+                child: Padding(
+                  padding: EdgeInsets.all(16.0),
+                child:  Text('Using this applicationg you can add announcment and notices for both student and staff. And all these information will be displated on the display of Smart Mirror.',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.normal
+                ),
+                textAlign: TextAlign.justify,),
+                )
+              )
+          )
+          ],
+      ),
       drawer: new Drawer(
         child: ListView(
           children: <Widget>[
             new UserAccountsDrawerHeader(
-                accountName: new Text('SMOR'),
+                accountName: new Text('Smart Mirror for ECE department'),
                 accountEmail: new Text('magicmirror.bpit@gmail.com'),
                 currentAccountPicture: new CircleAvatar(
-                  backgroundImage: new NetworkImage('https://image.shutterstock.com/z/stock-vector-sm-initial-monogram-logo-343791287.jpg'),
+                  backgroundImage: new AssetImage('assets/SMOR app icon.jpg'),
                 ),
             ),
             new ListTile(
