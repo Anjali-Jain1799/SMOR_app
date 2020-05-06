@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/Screen/Home/notices.dart';
-import 'package:flutterapp/Screen/Home/storage.dart';
-import 'package:flutterapp/Screen/Home/student_announcement.dart';
-import 'package:flutterapp/Screen/Home/teacher_announcement.dart';
+import 'package:flutterapp/Screen/Home/Storage/Faculty_timetable.dart';
+import 'package:flutterapp/Screen/Home/Storage/Other_info.dart';
+import 'package:flutterapp/Screen/Home/Storage/faculty_details.dart';
+import 'package:flutterapp/Screen/Home/Storage/student_timetable.dart';
+import 'package:flutterapp/Screen/Home/Database/notices.dart';
+import 'package:flutterapp/Screen/Home/Database/student_announcement.dart';
+import 'package:flutterapp/Screen/Home/Database/teacher_announcement.dart';
+
+
 
 class Homepage extends StatelessWidget {
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +28,8 @@ class Homepage extends StatelessWidget {
               child: Container(
                 child: Padding(
                   padding: EdgeInsets.all(16.0),
-                child:  Text('Using this applicationg you can add announcment and notices for both student and staff. And all these information will be displated on the display of Smart Mirror.',
+                child:  Text('With this application you can add new notices and announcement. Also Faculty Details, Faculty Time Table and Student Time Table '
+                    'can also be modified. All these changes and additions will be displayed on the Smart Mirror',
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
@@ -69,10 +76,34 @@ class Homepage extends StatelessWidget {
               },
             ),
             new ListTile(
-              title: new Text('Storage'),
+              title: new Text('Faculty Details'),
               onTap: (){
                 Navigator.push(context, new MaterialPageRoute(
-                    builder: (BuildContext context) => new Storage())
+                    builder: (BuildContext context) => new Faculty_Details())
+                );
+              },
+            ),
+            new ListTile(
+              title: new Text('Faculty Time Table'),
+              onTap: (){
+                Navigator.push(context, new MaterialPageRoute(
+                    builder: (BuildContext context) => new FacultyTimeTable())
+                );
+              },
+            ),
+            new ListTile(
+              title: new Text('Student Time Table'),
+              onTap: (){
+                Navigator.push(context, new MaterialPageRoute(
+                    builder: (BuildContext context) => new StudentTimeTable())
+                );
+              },
+            ),
+            new ListTile(
+              title: new Text('Other Information'),
+              onTap: (){
+                Navigator.push(context, new MaterialPageRoute(
+                    builder: (BuildContext context) => new Other_info())
                 );
               },
             )

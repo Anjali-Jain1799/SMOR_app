@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/Screen/Home/Storage/Faculty_timetable.dart';
+import 'package:flutterapp/Screen/Home/Storage/faculty_details.dart';
+import 'package:flutterapp/Screen/Home/Storage/student_timetable.dart';
 import 'package:flutterapp/Screen/Home/homepage.dart';
 
 import 'package:flutterapp/Screen/login.dart';
